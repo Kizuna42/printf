@@ -6,7 +6,7 @@
 #    By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/29 15:10:10 by kizuna            #+#    #+#              #
-#    Updated: 2025/01/29 15:10:11 by kizuna           ###   ########.fr        #
+#    Updated: 2025/01/29 20:42:12 by kizuna           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ OBJF		=	.cache_exists
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			@make -C $(LIBFT)
+			@make bonus -C $(LIBFT)
 			@cp libft/libft.a .
 			@mv libft.a $(NAME)
 			@$(AR) $(NAME) $(OBJ)
