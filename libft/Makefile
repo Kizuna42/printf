@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+         #
+#    By: kishino <kishino@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/25 16:01:19 by kizuna            #+#    #+#              #
-#    Updated: 2025/01/25 16:13:20 by kizuna           ###   ########.fr        #
+#    Updated: 2025/02/09 17:51:36 by kishino          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,8 @@ SRCS = $(FT_IS_DIR)ft_isalnum.c \
 		$(FT_PUT_DIR)ft_putendl_fd.c \
 		$(FT_PUT_DIR)ft_putnbr_fd.c \
 		$(FT_PUT_DIR)ft_putstr_fd.c \
+		$(FT_PUT_DIR)ft_putstr.c \
+		$(FT_PUT_DIR)ft_putnstr.c \
 		$(FT_STR_DIR)ft_split.c \
 		$(FT_STR_DIR)ft_strchr.c \
 		$(FT_STR_DIR)ft_strdup.c \
@@ -55,6 +57,7 @@ SRCS = $(FT_IS_DIR)ft_isalnum.c \
 		$(FT_STR_DIR)ft_strncmp.c \
 		$(FT_STR_DIR)ft_strnstr.c \
 		$(FT_STR_DIR)ft_strrchr.c \
+		$(FT_STR_DIR)ft_strnchr.c \
 		$(FT_STR_DIR)ft_strtrim.c \
 		$(FT_STR_DIR)ft_substr.c \
 		$(FT_STR_DIR)ft_striteri.c

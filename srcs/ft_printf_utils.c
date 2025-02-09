@@ -6,7 +6,7 @@
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:22:47 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:45:24 by kishino          ###   ########.fr       */
+/*   Updated: 2025/02/09 18:24:08 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,12 @@ int	ft_diff_one_or_more(t_tab *tab, int count)
 	return (count);
 }
 
-int	ft_putnbr_write_len(long long nb, long long base,
-								char mode, char *putlist)
+int	ft_putnbr_write_len(unsigned long nb, int base, char mode, char *putlist)
 {
 	int	len;
 
 	len = 0;
-	if (nb > base - 1)
+	if (nb >= (unsigned long)base)
 		len = ft_putnbr_write_len(nb / base, base, mode, putlist);
 	if (mode == 'w')
 		write(1, &putlist[nb % base], 1);

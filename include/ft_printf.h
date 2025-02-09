@@ -6,7 +6,7 @@
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:47:15 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 15:48:54 by kishino          ###   ########.fr       */
+/*   Updated: 2025/02/09 18:25:17 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_tab
 int				ft_printf(const char *fmt, ...);
 int				ft_set_diff(t_tab *tab);
 int				ft_diff_one_or_more(t_tab *tab, int count);
-int				ft_putnbr_write_len(long long nb, long long base,
+int				ft_putnbr_write_len(unsigned long nb, int base,
 					char mode, char *putlist);
 void			ft_print_c(t_tab *tab);
 void			ft_print_percent(t_tab *tab);

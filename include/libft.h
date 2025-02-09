@@ -6,7 +6,7 @@
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:15:36 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:39:53 by kishino          ###   ########.fr       */
+/*   Updated: 2025/02/09 17:53:39 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_putstr(const char *s);
-int		ft_putnstr(const char *s, int n);
+int		ft_putnstr(const char *str, long int end);
 int		ft_strnchr(const char *s, int c, int start, int end);
 
 #endif
