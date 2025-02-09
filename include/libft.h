@@ -6,7 +6,7 @@
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:15:36 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 15:48:21 by kishino          ###   ########.fr       */
+/*   Updated: 2025/02/09 16:39:53 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strdup(const char *s);
-char	*ft_strchr(const char *s, int c);
+int		ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_atoi(const char *nptr);
+int		ft_atoi(const char *str, int *len);
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
@@ -68,5 +68,8 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int		ft_putstr(const char *s);
+int		ft_putnstr(const char *s, int n);
+int		ft_strnchr(const char *s, int c, int start, int end);
 
 #endif

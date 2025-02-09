@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 12:27:14 by kyuki             #+#    #+#             */
-/*   Updated: 2025/02/09 15:55:42 by kishino          ###   ########.fr       */
+/*   Created: 2025/02/09 16:18:11 by kishino           #+#    #+#             */
+/*   Updated: 2025/02/09 16:40:40 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,6 @@ static void	ft_flag_nonhyphen(t_tab *tab)
 
 void	ft_print_percent(t_tab *tab)
 {
-	int	j;
-
-	j = 0;
 	if (tab->flag_index != 2)
 		ft_flag_nonhyphen(tab);
 	else

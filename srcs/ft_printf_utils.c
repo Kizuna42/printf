@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 12:27:38 by kyuki             #+#    #+#             */
-/*   Updated: 2020/11/30 12:27:43 by kyuki            ###   ########.fr       */
+/*   Created: 2025/02/09 16:22:47 by kishino           #+#    #+#             */
+/*   Updated: 2025/02/09 16:22:50 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		ft_set_field_accu_flag(t_tab *tab, int dot_index)
+static void	ft_set_field_accu_flag(t_tab *tab, int dot_index)
 {
 	if (tab->asterisk == 1)
 	{
@@ -38,7 +38,7 @@ static void		ft_set_field_accu_flag(t_tab *tab, int dot_index)
 	}
 }
 
-void			ft_set_field_accu_fmt(t_tab *tab, int i)
+void	ft_set_field_accu_fmt(t_tab *tab, int i)
 {
 	int	tmp;
 	int	dot_index;
@@ -53,7 +53,7 @@ void			ft_set_field_accu_fmt(t_tab *tab, int i)
 	ft_set_field_accu_flag(tab, dot_index);
 }
 
-int				ft_set_diff(t_tab *tab)
+int	ft_set_diff(t_tab *tab)
 {
 	int	diff;
 
@@ -65,7 +65,7 @@ int				ft_set_diff(t_tab *tab)
 	return (diff);
 }
 
-int				ft_diff_one_or_more(t_tab *tab, int count)
+int	ft_diff_one_or_more(t_tab *tab, int count)
 {
 	while (count < tab->field_width -
 		(tab->keta_count + tab->acu_keta_diff + tab->negative_other))
@@ -87,7 +87,7 @@ int				ft_diff_one_or_more(t_tab *tab, int count)
 	return (count);
 }
 
-int				ft_putnbr_write_len(long long nb, long long base,
+int	ft_putnbr_write_len(long long nb, long long base,
 								char mode, char *putlist)
 {
 	int	len;

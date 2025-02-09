@@ -3,40 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:01:34 by kishino           #+#    #+#             */
-/*   Updated: 2025/01/25 17:05:26 by kizuna           ###   ########.fr       */
+/*   Updated: 2025/02/09 16:03:23 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str, int *len)
 {
-	int	i;
-	int	neg;
-	int	num;
+	unsigned long long		atoi;
+	int						negative;
 
-	i = 0;
-	num = 0;
-	neg = 1;
-	while (nptr[i] == ' ' || nptr[i] == '\n'
-		|| nptr[i] == '\v' || nptr[i] == '\f'
-		|| nptr[i] == '\r' || nptr[i] == '\t')
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	atoi = 0;
+	negative = 1;
+	while (*str == '\t' || *str == '\v' || *str == '\n'
+		|| *str == '\r' || *str == '\f' || *str == ' ')
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		if (nptr[i] == '-')
-			neg *= -1;
-		i++;
+		if (*str == '-')
+			negative *= -1;
+		str++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		num = num * 10 + (nptr[i] - '0');
-		i++;
+		atoi = atoi * 10 + *str - 48;
+		str++;
+		(*len)++;
+		if (atoi > 9223372036854775807 && negative == -1)
+			return (0);
+		if (atoi > 9223372036854775806 && negative == 1)
+			return (-1);
 	}
-	return (num * neg);
+	return ((int)atoi * negative);
 }
 
 // #include <stdio.h>

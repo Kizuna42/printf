@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_flag.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 12:27:33 by kyuki             #+#    #+#             */
-/*   Updated: 2020/11/30 12:27:37 by kyuki            ###   ########.fr       */
+/*   Created: 2025/02/09 16:22:38 by kishino           #+#    #+#             */
+/*   Updated: 2025/02/09 16:30:59 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_printf_flag(t_tab *tab, int *i)
 {
 	if (tab->copy[*i] == '0' && tab->copy[*i + 1] == '-')
 		*i += 1;
-	if ((tab->flag_index = ft_strchr(tab->flag_kind, tab->copy[*i])) >= 0)
+	tab->flag_index = ft_strchr(tab->flag_kind, tab->copy[*i]);
+	if (tab->flag_index >= 0)
 		*i += 1;
 	if (tab->copy[*i] == '*')
 	{

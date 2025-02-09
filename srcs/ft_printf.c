@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 12:27:44 by kyuki             #+#    #+#             */
-/*   Updated: 2025/02/09 15:52:39 by kishino          ###   ########.fr       */
+/*   Created: 2025/02/09 16:22:55 by kishino           #+#    #+#             */
+/*   Updated: 2025/02/09 16:27:58 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_printf_putstr(t_tab *tab)
 void	ft_printf_main(t_tab *tab, const char *fmt)
 {
 	tab->copy = fmt;
-	if (ft_strchr(tab->copy, '%') == -1)
+	if (ft_strchr(tab->copy, '%') == NULL)
 	{
 		ft_putstr(tab->copy);
 		tab->len = ft_strlen(tab->copy);
@@ -91,7 +91,8 @@ int	ft_printf(const char *fmt, ...)
 
 	if (fmt == NULL)
 		return (-1);
-	if (!(tab = (t_tab *)malloc(sizeof(t_tab))))
+	tab = (t_tab *)malloc(sizeof(t_tab));
+	if (!tab)
 		return (-1);
 	ft_initialize(tab);
 	if (fmt && *fmt != *"")

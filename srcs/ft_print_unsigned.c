@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 12:27:30 by kyuki             #+#    #+#             */
-/*   Updated: 2025/02/09 15:57:23 by kishino          ###   ########.fr       */
+/*   Created: 2025/02/09 16:22:32 by kishino           #+#    #+#             */
+/*   Updated: 2025/02/09 16:22:34 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int	ft_putnbr_uint(t_tab *tab,
 	if (mode != 'l')
 	{
 		ft_put_zero(tab);
-		if (nbr == 0 && (tab->field_width - tab->accuracy_width) > 0 &&
-			tab->accuracy_width == 0 && tab->dot > 0)
+		if (nbr == 0 && (tab->field_width - tab->accuracy_width) > 0
+			&& tab->accuracy_width == 0 && tab->dot > 0)
 		{
 			write(1, " ", 1);
 			return (1);
@@ -42,8 +42,8 @@ static void	ft_diff_over_zero(t_tab *tab)
 	int	count;
 
 	count = 0;
-	while (count < tab->field_width -
-		(tab->keta_count + tab->acu_keta_diff + tab->negative_other))
+	while (count < tab->field_width
+		- (tab->keta_count + tab->acu_keta_diff + tab->negative_other))
 	{
 		if (tab->flag_index == 1 && tab->dot == 0)
 		{
@@ -71,8 +71,8 @@ static void	ft_flag_hyphen(t_tab *tab, unsigned int x)
 	count = 0;
 	if (diff > 0)
 	{
-		while (count < tab->field_width -
-			(tab->keta_count + tab->acu_keta_diff + tab->negative_other))
+		while (count < tab->field_width
+			- (tab->keta_count + tab->acu_keta_diff + tab->negative_other))
 		{
 			write(1, " ", 1);
 			tab->len++;
@@ -112,8 +112,8 @@ void	ft_print_unsigned(t_tab *tab, int base)
 
 	x = (va_arg(tab->args, unsigned int));
 	tab->base = base;
-	if (tab->dot > 0 && x == 0 &&
-		tab->accuracy_width == 0 && tab->field_width == 0)
+	if (tab->dot > 0 && x == 0
+		&& tab->accuracy_width == 0 && tab->field_width == 0)
 		return ;
 	if (tab->flag_index != 2)
 		ft_flag_nonhyphen(tab, x);

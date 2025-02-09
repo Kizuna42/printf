@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 12:27:06 by kyuki             #+#    #+#             */
-/*   Updated: 2025/02/09 15:53:25 by kishino          ###   ########.fr       */
+/*   Created: 2025/02/09 16:13:28 by kishino           #+#    #+#             */
+/*   Updated: 2025/02/09 16:40:25 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ static void	ft_flag_hyphen(t_tab *tab, char *s)
 void	ft_print_c(t_tab *tab)
 {
 	char	*s;
-	int		j;
 
-	j = 0;
 	s = (va_arg(tab->args, char *));
 	if (tab->flag_index != 2)
 		ft_flag_nonhyphen(tab, s);

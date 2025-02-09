@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 12:27:23 by kyuki             #+#    #+#             */
-/*   Updated: 2025/02/09 15:56:10 by kishino          ###   ########.fr       */
+/*   Created: 2025/02/09 16:18:37 by kishino           #+#    #+#             */
+/*   Updated: 2025/02/09 16:21:33 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ static void	ft_flag_nonhyphen(t_tab *tab, char *s, long int diff)
 
 	count = 0;
 	if (*s == *"" && tab->accuracy_width > 0)
-		diff += (tab->accuracy_width >= tab->field_width) ? 0 : 1;
+	{
+		if (tab->accuracy_width >= tab->field_width)
+			diff += 0;
+		else
+			diff += 1;
+	}
 	if (tab->accuracy_width < 0)
 		count = tab->accuracy_width * -1;
 	while (count < diff)
