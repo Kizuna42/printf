@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+         #
+#    By: kishino <kishino@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/29 15:10:10 by kizuna            #+#    #+#              #
-#    Updated: 2025/01/29 20:42:12 by kizuna           ###   ########.fr        #
+#    Updated: 2025/02/09 15:44:00 by kishino          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libftprintf.a
 INCLUDE		= include
 LIBFT		= libft
-SRC_DIR		= src/
+SRC_DIR		= srcs/
 OBJ_DIR		= obj/
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -I
@@ -34,7 +34,17 @@ WHITE = \033[0;97m
 
 #Sources
 
-SRC_FILES	=	ft_printf ft_printf_utils ft_print_ptr ft_print_unsigned ft_print_hex
+SRC_FILES = ft_printf \
+			ft_printf_flag \
+			ft_print_c \
+			ft_print_s \
+			ft_print_s_null \
+			ft_print_percent \
+			ft_print_int \
+			ft_print_unsigned \
+			ft_print_unsigned_long \
+			ft_printf_utils \
+			ft_initialize
 
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
