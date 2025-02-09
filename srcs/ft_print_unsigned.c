@@ -6,14 +6,13 @@
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:22:32 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:22:34 by kishino          ###   ########.fr       */
+/*   Updated: 2025/02/09 17:22:54 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putnbr_uint(t_tab *tab,
-											unsigned int nbr, char mode)
+static int	ft_putnbr_uint(t_tab *tab, unsigned int nbr, char mode)
 {
 	int	len;
 
@@ -60,36 +59,8 @@ static void	ft_diff_over_zero(t_tab *tab)
 	}
 }
 
-static void	ft_flag_hyphen(t_tab *tab, unsigned int x)
+static void	ft_write_prefix(t_tab *tab)
 {
-	int	diff;
-	int	count;
-
-	tab->keta_count += ft_putnbr_uint(tab, x, 'l');
-	diff = ft_set_diff(tab);
-	tab->len += ft_putnbr_uint(tab, x, 'w');
-	count = 0;
-	if (diff > 0)
-	{
-		while (count < tab->field_width
-			- (tab->keta_count + tab->acu_keta_diff + tab->negative_other))
-		{
-			write(1, " ", 1);
-			tab->len++;
-			count++;
-		}
-	}
-}
-
-static void	ft_flag_nonhyphen(t_tab *tab, unsigned int x)
-{
-	int	diff;
-
-	tab->keta_count += ft_putnbr_uint(tab, x, 'l');
-	if (tab->flag_index == 0 && ((tab->base == 16) || (tab->base == 8)))
-		tab->negative_other += (tab->base == 16) ? 2 : 1;
-	if ((diff = ft_set_diff(tab)) > 0)
-		ft_diff_over_zero(tab);
 	if (tab->flag_index == 0 && ((tab->base == 16) || (tab->base == 8)))
 	{
 		write(1, "0", 1);
@@ -103,7 +74,29 @@ static void	ft_flag_nonhyphen(t_tab *tab, unsigned int x)
 			tab->len += 1;
 		}
 	}
+}
+
+static void	ft_handle_flags(t_tab *tab, unsigned int x)
+{
+	int	diff;
+
+	tab->keta_count += ft_putnbr_uint(tab, x, 'l');
+	if (tab->flag_index == 0 && ((tab->base == 16) || (tab->base == 8)))
+	{
+		if (tab->base == 16)
+			tab->negative_other += 2;
+		tab->negative_other += 1;
+	}
+	diff = ft_set_diff(tab);
+	if (tab->flag_index != 2)
+	{
+		if (diff > 0)
+			ft_diff_over_zero(tab);
+		ft_write_prefix(tab);
+	}
 	tab->len += ft_putnbr_uint(tab, x, 'w');
+	if (tab->flag_index == 2 && diff > 0)
+		ft_diff_over_zero(tab);
 }
 
 void	ft_print_unsigned(t_tab *tab, int base)
@@ -115,8 +108,5 @@ void	ft_print_unsigned(t_tab *tab, int base)
 	if (tab->dot > 0 && x == 0
 		&& tab->accuracy_width == 0 && tab->field_width == 0)
 		return ;
-	if (tab->flag_index != 2)
-		ft_flag_nonhyphen(tab, x);
-	else if (tab->flag_index == 2)
-		ft_flag_hyphen(tab, x);
+	ft_handle_flags(tab, x);
 }

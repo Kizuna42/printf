@@ -6,7 +6,7 @@
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:22:55 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:27:58 by kishino          ###   ########.fr       */
+/*   Updated: 2025/02/09 16:48:45 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_printf_putstr(t_tab *tab)
 void	ft_printf_main(t_tab *tab, const char *fmt)
 {
 	tab->copy = fmt;
-	if (ft_strchr(tab->copy, '%') == NULL)
+	if (ft_strchr(tab->copy, '%') == -1)
 	{
 		ft_putstr(tab->copy);
 		tab->len = ft_strlen(tab->copy);

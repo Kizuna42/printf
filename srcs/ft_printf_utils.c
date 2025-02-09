@@ -6,7 +6,7 @@
 /*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:22:47 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:22:50 by kishino          ###   ########.fr       */
+/*   Updated: 2025/02/09 16:45:24 by kishino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static void	ft_set_field_accu_flag(t_tab *tab, int dot_index)
 	{
 		if (dot_index == -1 || tab->copy[dot_index - 1] == '*')
 		{
-			if ((tab->field_width = va_arg(tab->args, int)) < 0)
+			tab->field_width = va_arg(tab->args, int);
+			if (tab->field_width < 0)
 			{
 				tab->field_width *= -1;
 				tab->flag_index = 2;
@@ -29,7 +30,8 @@ static void	ft_set_field_accu_flag(t_tab *tab, int dot_index)
 	}
 	else if (tab->asterisk == 2)
 	{
-		if ((tab->field_width = va_arg(tab->args, int)) < 0)
+		tab->field_width = va_arg(tab->args, int);
+		if (tab->field_width < 0)
 		{
 			tab->field_width *= -1;
 			tab->flag_index = 2;
@@ -45,9 +47,11 @@ void	ft_set_field_accu_fmt(t_tab *tab, int i)
 
 	dot_index = -1;
 	tab->fmt = tab->copy[i];
-	if ((tmp = ft_strchr(tab->copy, '%')) >= 0)
+	tmp = ft_strchr(tab->copy, '%');
+	if (tmp >= 0)
 	{
-		if ((tmp = ft_strnchr(tab->copy, '.', tmp, tab->fmt)) != -1)
+		tmp = ft_strnchr(tab->copy, '.', tmp, tab->fmt);
+		if (tmp != -1)
 			dot_index = tmp;
 	}
 	ft_set_field_accu_flag(tab, dot_index);
@@ -67,11 +71,11 @@ int	ft_set_diff(t_tab *tab)
 
 int	ft_diff_one_or_more(t_tab *tab, int count)
 {
-	while (count < tab->field_width -
-		(tab->keta_count + tab->acu_keta_diff + tab->negative_other))
+	while (count < tab->field_width
+		- (tab->keta_count + tab->acu_keta_diff + tab->negative_other))
 	{
-		if (tab->flag_index != 1 || (tab->flag_index == 1 &&
-			tab->field_width > tab->accuracy_width && tab->accuracy_width > 0))
+		if (tab->flag_index != 1 || (tab->flag_index == 1 && tab->field_width
+				> tab->accuracy_width && tab->accuracy_width > 0))
 		{
 			write(1, " ", 1);
 			tab->len++;
