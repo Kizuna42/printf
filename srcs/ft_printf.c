@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:22:55 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:48:45 by kishino          ###   ########.fr       */
+/*   Updated: 2025/03/01 18:13:32 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	ft_printf_main(t_tab *tab, const char *fmt)
 int	ft_printf(const char *fmt, ...)
 {
 	t_tab	*tab;
+	int		len;
 
 	if (fmt == NULL)
 		return (-1);
@@ -101,6 +102,7 @@ int	ft_printf(const char *fmt, ...)
 		ft_printf_main(tab, fmt);
 		va_end(tab->args);
 	}
+	len = tab->len;
 	free(tab);
-	return (tab->len);
+	return (len);
 }

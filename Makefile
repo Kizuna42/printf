@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kishino <kishino@student.42.fr>            +#+  +:+       +#+         #
+#    By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/29 15:10:10 by kizuna            #+#    #+#              #
-#    Updated: 2025/02/09 16:12:52 by kishino          ###   ########.fr        #
+#    Updated: 2025/03/01 18:33:37 by kizuna           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,8 @@ SRC_FILES = ft_printf \
 			ft_print_int \
 			ft_print_unsigned \
 			ft_print_unsigned_long \
+			ft_print_unsigned_long_utils \
+			ft_print_unsigned_long_flag \
 			ft_printf_utils \
 			ft_initialize
 

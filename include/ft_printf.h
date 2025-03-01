@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:47:15 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 18:25:17 by kishino          ###   ########.fr       */
+/*   Updated: 2025/03/01 18:34:22 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int				ft_set_diff(t_tab *tab);
 int				ft_diff_one_or_more(t_tab *tab, int count);
 int				ft_putnbr_write_len(unsigned long nb, int base,
 					char mode, char *putlist);
+int				ft_putnbr_ulong(t_tab *tab, unsigned long nbr, char mode);
 void			ft_print_c(t_tab *tab);
 void			ft_print_percent(t_tab *tab);
 void			ft_print_s(t_tab *tab);
@@ -57,5 +58,12 @@ void			ft_set_field_accu_fmt(t_tab *tab, int i);
 void			ft_flag_hyphen_unsigned(t_tab *tab, int i, unsigned int x);
 void			ft_printf_flag(t_tab *tab, int *i);
 void			ft_put_zero(t_tab *tab);
+void			ft_flag_hyphen_ulong(t_tab *tab, unsigned long p, int diff);
+void			ft_flag_nonhyphen_ulong(t_tab *tab, unsigned long p, int diff);
+void			handle_null_pointer(t_tab *tab);
+void			handle_null_pointer_with_precision(t_tab *tab);
+void			handle_null_pointer_left(t_tab *tab, int width);
+void			handle_null_pointer_zero(t_tab *tab, int width);
+void			handle_null_pointer_right(t_tab *tab, int width);
 
 #endif
