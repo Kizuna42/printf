@@ -3,31 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:18:03 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:18:04 by kishino          ###   ########.fr       */
+/*   Updated: 2025/03/04 17:54:58 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_write_minus_space(t_tab *tab, int count, int diff, char mode)
+static void	ft_write_space_y(t_tab *tab, int diff)
 {
 	int	i;
 
 	i = -1;
+	if (diff > 0)
+	{
+		while (++i < tab->field_width
+			- (tab->keta_count + tab->acu_keta_diff + tab->negative_other))
+		{
+			write(1, " ", 1);
+			tab->len++;
+		}
+	}
+}
+
+void	ft_write_minus_space(t_tab *tab, int count, int diff, char mode)
+{
 	if (mode == 'y')
 	{
-		if (diff > 0)
-		{
-			while (++i < tab -> field_width
-				- (tab->keta_count + tab->acu_keta_diff + tab->negative_other))
-			{
-				write(1, " ", 1);
-				tab->len++;
-			}
-		}
+		ft_write_space_y(tab, diff);
 	}
 	else
 	{
@@ -38,6 +43,10 @@ static void	ft_write_minus_space(t_tab *tab, int count, int diff, char mode)
 		if (tab->negative_other == 1 && (tab->flag_index != 1
 				|| (tab->flag_index == 1 && tab->dot == 1)))
 			write(1, "-", 1);
+		else if (tab->negative_other == 2)
+			write(1, "+", 1);
+		else if (tab->negative_other == 3)
+			write(1, " ", 1);
 	}
 }
 
@@ -70,52 +79,8 @@ int	ft_putnbr_int(t_tab *tab, long int nbr, char mode)
 	return (len);
 }
 
-static void	ft_flag_hyphen(t_tab *tab, int d)
-{
-	int	diff;
-
-	if (tab->field_width < 0)
-		tab->field_width *= -1;
-	tab->len += ft_putnbr_int(tab, d, 'l');
-	if (d < 0)
-	{
-		d *= -1;
-		tab->len += 1;
-		tab->negative_other += 1;
-		write(1, "-", 1);
-	}
-	tab->keta_count += ft_putnbr_int(tab, d, 'l');
-	diff = ft_set_diff(tab);
-	ft_putnbr_int(tab, d, 'w');
-	ft_write_minus_space(tab, 0, diff, 'y');
-}
-
-static void	ft_flag_nonhyphen(t_tab *tab, int d)
-{
-	int	diff;
-	int	count;
-
-	count = 0;
-	tab->len += ft_putnbr_int(tab, d, 'l');
-	if (d < 0)
-	{
-		tab->len += 1;
-		if (tab->asterisk > 0 && tab->dot == 0 && d > 0)
-		{
-			write(1, "-", 1);
-			count += 1;
-		}
-		else
-		{
-			d *= -1;
-			tab->negative_other += 1;
-		}
-	}
-	tab->keta_count += ft_putnbr_int(tab, d, 'l');
-	diff = ft_set_diff(tab);
-	ft_write_minus_space(tab, count, diff, 'n');
-	ft_putnbr_int(tab, d, 'w');
-}
+void	ft_flag_hyphen(t_tab *tab, int d);
+void	ft_flag_nonhyphen(t_tab *tab, int d);
 
 void	ft_print_int(t_tab *tab, int base)
 {
