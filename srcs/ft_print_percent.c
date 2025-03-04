@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_percent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:18:11 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:40:40 by kishino          ###   ########.fr       */
+/*   Updated: 2025/03/04 18:04:23 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_flag_hyphen(t_tab *tab)
+static void	ft_flag_hyphen_percent(t_tab *tab)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ static void	ft_flag_hyphen(t_tab *tab)
 	}
 }
 
-static void	ft_flag_nonhyphen(t_tab *tab)
+static void	ft_flag_nonhyphen_percent(t_tab *tab)
 {
 	int	i;
 
@@ -48,7 +48,7 @@ static void	ft_flag_nonhyphen(t_tab *tab)
 void	ft_print_percent(t_tab *tab)
 {
 	if (tab->flag_index != 2)
-		ft_flag_nonhyphen(tab);
+		ft_flag_nonhyphen_percent(tab);
 	else
-		ft_flag_hyphen(tab);
+		ft_flag_hyphen_percent(tab);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_s_null.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:18:22 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:18:25 by kishino          ###   ########.fr       */
+/*   Updated: 2025/03/04 18:04:05 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_flag_nonhyphen(t_tab *tab, char *null, long int diff)
+static void	ft_flag_nonhyphen_null(t_tab *tab, char *null, long int diff)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ static void	ft_flag_nonhyphen(t_tab *tab, char *null, long int diff)
 		tab->len += ft_putnstr(null, tab->accuracy_width);
 }
 
-static void	ft_flag_hyphen(t_tab *tab, char *null, long int diff)
+static void	ft_flag_hyphen_null(t_tab *tab, char *null, long int diff)
 {
 	int	i;
 
@@ -61,7 +61,7 @@ void	ft_print_s_null(t_tab *tab)
 		&& tab->dot != 0 && tab->accuracy_width >= 0)
 		diff = tab->field_width - tab->accuracy_width;
 	if (tab->flag_index != 2)
-		ft_flag_nonhyphen(tab, null, diff);
+		ft_flag_nonhyphen_null(tab, null, diff);
 	else if (tab->flag_index == 2)
-		ft_flag_hyphen(tab, null, diff);
+		ft_flag_hyphen_null(tab, null, diff);
 }

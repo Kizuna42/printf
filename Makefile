@@ -6,7 +6,7 @@
 #    By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/29 15:10:10 by kizuna            #+#    #+#              #
-#    Updated: 2025/03/04 17:46:51 by kizuna           ###   ########.fr        #
+#    Updated: 2025/03/04 18:02:13 by kizuna           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,9 @@ SRC_FILES = ft_printf \
 			ft_print_s_null \
 			ft_print_percent \
 			ft_print_int \
+			ft_print_int_flag \
 			ft_print_unsigned \
+			ft_print_unsigned_flag \
 			ft_print_unsigned_long \
 			ft_print_unsigned_long_utils \
 			ft_print_unsigned_long_flag \

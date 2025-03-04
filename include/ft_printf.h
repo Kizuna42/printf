@@ -6,7 +6,7 @@
 /*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:47:15 by kishino           #+#    #+#             */
-/*   Updated: 2025/03/01 18:40:45 by kizuna           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:01:49 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int				ft_diff_one_or_more(t_tab *tab, int count);
 int				ft_putnbr_write_len(unsigned long nb, int base,
 					char mode, char *putlist);
 int				ft_putnbr_ulong(t_tab *tab, unsigned long nbr, char mode);
+int				ft_putnbr_int(t_tab *tab, long int nbr, char mode);
 void			ft_print_c(t_tab *tab);
 void			ft_print_percent(t_tab *tab);
 void			ft_print_s(t_tab *tab);
@@ -65,5 +66,12 @@ void			handle_null_pointer_with_precision(t_tab *tab);
 void			handle_null_pointer_left(t_tab *tab, int width);
 void			handle_null_pointer_zero(t_tab *tab, int width);
 void			handle_null_pointer_right(t_tab *tab, int width);
+void			ft_write_minus_space(t_tab *tab, int count, int diff,
+					char mode);
+void			ft_flag_hyphen(t_tab *tab, int d);
+void			ft_flag_nonhyphen(t_tab *tab, int d);
+void			ft_diff_over_zero(t_tab *tab);
+void			ft_write_prefix(t_tab *tab, unsigned int x);
+void			ft_set_negative_other(t_tab *tab, unsigned int x);
 
 #endif

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_c.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kishino <kishino@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:13:28 by kishino           #+#    #+#             */
-/*   Updated: 2025/02/09 16:40:25 by kishino          ###   ########.fr       */
+/*   Updated: 2025/03/04 18:03:02 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_flag_nonhyphen(t_tab *tab, char *s)
+static void	ft_flag_nonhyphen_c(t_tab *tab, char *s)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ static void	ft_flag_nonhyphen(t_tab *tab, char *s)
 	tab->len++;
 }
 
-static void	ft_flag_hyphen(t_tab *tab, char *s)
+static void	ft_flag_hyphen_c(t_tab *tab, char *s)
 {
 	int	i;
 
@@ -51,7 +51,7 @@ void	ft_print_c(t_tab *tab)
 
 	s = (va_arg(tab->args, char *));
 	if (tab->flag_index != 2)
-		ft_flag_nonhyphen(tab, s);
+		ft_flag_nonhyphen_c(tab, s);
 	else
-		ft_flag_hyphen(tab, s);
+		ft_flag_hyphen_c(tab, s);
 }
