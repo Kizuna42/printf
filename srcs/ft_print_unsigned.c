@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 static int	ft_putnbr_uint(t_tab *tab, unsigned int nbr, char mode)
 {

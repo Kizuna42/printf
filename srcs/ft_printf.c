@@ -6,11 +6,11 @@
 /*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:22:55 by kishino           #+#    #+#             */
-/*   Updated: 2025/03/01 18:13:32 by kizuna           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:26:49 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 void	ft_put_zero(t_tab *tab)
 {
