@@ -6,7 +6,7 @@
 #    By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/29 15:10:10 by kizuna            #+#    #+#              #
-#    Updated: 2025/03/04 18:02:13 by kizuna           ###   ########.fr        #
+#    Updated: 2025/03/04 18:23:31 by kizuna           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT		= libft
 SRC_DIR		= srcs/
 OBJ_DIR		= obj/
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra -I
+CFLAGS		= -Wall -Werror -Wextra -I$(INCLUDE)
 RM			= rm -f
 AR			= ar rcs
 
@@ -69,7 +69,7 @@ $(NAME):	$(OBJ)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+			@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJF):
 			@mkdir -p $(OBJ_DIR)

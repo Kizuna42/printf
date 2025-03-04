@@ -6,7 +6,7 @@
 /*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:32:00 by kizuna            #+#    #+#             */
-/*   Updated: 2025/03/01 18:40:49 by kizuna           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:23:31 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ void	ft_flag_hyphen_ulong(t_tab *tab, unsigned long p, int diff)
 {
 	int	count;
 
-	write(1, "0x", 2);
-	tab->len += 2;
+	if (tab->fmt == 'p')
+	{
+		write(1, "0x", 2);
+		tab->len += 2;
+	}
 	tab->len += ft_putnbr_ulong(tab, p, 'w');
 	count = 0;
 	if (diff > 0)
@@ -59,8 +62,10 @@ void	ft_flag_nonhyphen_ulong(t_tab *tab, unsigned long p, int diff)
 	count = 0;
 	if (diff > 0)
 		ft_diff_one_or_more(tab, count);
-	else
+	if (tab->fmt == 'p')
+	{
 		write(1, "0x", 2);
-	tab->len += 2;
+		tab->len += 2;
+	}
 	tab->len += ft_putnbr_ulong(tab, p, 'w');
 }

@@ -6,7 +6,7 @@
 /*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:22:23 by kishino           #+#    #+#             */
-/*   Updated: 2025/03/03 18:21:26 by kizuna           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:23:31 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_print_unsigned_long(t_tab *tab, int base)
 
 	p = (va_arg(tab->args, unsigned long));
 	tab->base = base;
+	tab->fmt = 'p';
 	if (p == 0)
 	{
 		handle_null_pointer(tab);

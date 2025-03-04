@@ -6,7 +6,7 @@
 /*   By: kizuna <kizuna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:18:03 by kishino           #+#    #+#             */
-/*   Updated: 2025/03/04 17:54:58 by kizuna           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:23:31 by kizuna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	ft_write_minus_space(t_tab *tab, int count, int diff, char mode)
 		if (tab->negative_other == 1 && (tab->flag_index != 1
 				|| (tab->flag_index == 1 && tab->dot == 1)))
 			write(1, "-", 1);
-		else if (tab->negative_other == 2)
-			write(1, "+", 1);
 		else if (tab->negative_other == 3)
+			write(1, "+", 1);
+		else if (tab->negative_other == 2)
 			write(1, " ", 1);
 	}
 }
@@ -63,8 +63,7 @@ int	ft_putnbr_int(t_tab *tab, long int nbr, char mode)
 		if (nbr == 0 && (tab->field_width - tab->accuracy_width) > 0
 			&& tab->accuracy_width == 0 && tab->dot > 0)
 		{
-			write(1, " ", 1);
-			return (1);
+			return (0);
 		}
 		if (tab->field_width == 0 && nbr == 0
 			&& tab->accuracy_width == 0 && tab->dot == 1)
