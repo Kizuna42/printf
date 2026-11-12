@@ -12,7 +12,7 @@
 
 #include "../include/ft_printf.h"
 
-static void	ft_flag_hyphen_sign(t_tab *tab, int *d)
+static void	ft_flag_hyphen_sign(t_tab *tab, long *d)
 {
 	if (*d < 0)
 	{
@@ -35,7 +35,7 @@ static void	ft_flag_hyphen_sign(t_tab *tab, int *d)
 	}
 }
 
-void	ft_flag_hyphen(t_tab *tab, int d)
+void	ft_flag_hyphen(t_tab *tab, long d)
 {
 	int	diff;
 
@@ -49,7 +49,7 @@ void	ft_flag_hyphen(t_tab *tab, int d)
 	ft_write_minus_space(tab, 0, diff, 'y');
 }
 
-static void	ft_flag_nonhyphen_sign(t_tab *tab, int *d, int *count)
+static void	ft_flag_nonhyphen_sign(t_tab *tab, long *d, int *count)
 {
 	if (*d < 0)
 	{
@@ -77,7 +77,7 @@ static void	ft_flag_nonhyphen_sign(t_tab *tab, int *d, int *count)
 	}
 }
 
-void	ft_flag_nonhyphen(t_tab *tab, int d)
+void	ft_flag_nonhyphen(t_tab *tab, long d)
 {
 	int	diff;
 	int	count;

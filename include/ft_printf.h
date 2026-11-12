@@ -68,8 +68,8 @@ void			handle_null_pointer_zero(t_tab *tab, int width);
 void			handle_null_pointer_right(t_tab *tab, int width);
 void			ft_write_minus_space(t_tab *tab, int count, int diff,
 					char mode);
-void			ft_flag_hyphen(t_tab *tab, int d);
-void			ft_flag_nonhyphen(t_tab *tab, int d);
+void			ft_flag_hyphen(t_tab *tab, long d);
+void			ft_flag_nonhyphen(t_tab *tab, long d);
 void			ft_diff_over_zero(t_tab *tab);
 void			ft_write_prefix(t_tab *tab, unsigned int x);
 void			ft_set_negative_other(t_tab *tab, unsigned int x);

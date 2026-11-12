@@ -82,6 +82,7 @@ clean:
 fclean:		clean
 			@$(RM) -f $(NAME)
 			@$(RM) -f $(LIBFT)/libft.a
+			@$(RM) -f $(TEST_BIN)
 			@echo "$(CYAN)ft_printf executable files cleaned!$(DEF_COLOR)"
 			@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
 
@@ -90,7 +91,13 @@ re:			fclean all
 
 bonus:		re
 
+TEST_BIN	= test_printf
+
+test:		$(NAME)
+			@$(CC) $(CFLAGS) tests/test_printf.c $(NAME) -o $(TEST_BIN)
+			@./$(TEST_BIN)
+
 norm:
 			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
 
-.PHONY:		all clean fclean re norm
+.PHONY:		all clean fclean re bonus norm test
