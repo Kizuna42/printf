@@ -12,7 +12,7 @@
 
 #include "../include/ft_printf.h"
 
-static void	ft_flag_nonhyphen_c(t_tab *tab, char *s)
+static void	ft_flag_nonhyphen_c(t_tab *tab, unsigned char c)
 {
 	int	i;
 
@@ -26,16 +26,16 @@ static void	ft_flag_nonhyphen_c(t_tab *tab, char *s)
 		tab->len++;
 		i++;
 	}
-	write(1, &s, 1);
+	write(1, &c, 1);
 	tab->len++;
 }
 
-static void	ft_flag_hyphen_c(t_tab *tab, char *s)
+static void	ft_flag_hyphen_c(t_tab *tab, unsigned char c)
 {
 	int	i;
 
 	i = 0;
-	write(1, &s, 1);
+	write(1, &c, 1);
 	tab->len++;
 	while (i < tab->field_width - 1)
 	{
@@ -47,11 +47,11 @@ static void	ft_flag_hyphen_c(t_tab *tab, char *s)
 
 void	ft_print_c(t_tab *tab)
 {
-	char	*s;
+	unsigned char	c;
 
-	s = (va_arg(tab->args, char *));
+	c = (unsigned char)va_arg(tab->args, int);
 	if (tab->flag_index != 2)
-		ft_flag_nonhyphen_c(tab, s);
+		ft_flag_nonhyphen_c(tab, c);
 	else
-		ft_flag_hyphen_c(tab, s);
+		ft_flag_hyphen_c(tab, c);
 }

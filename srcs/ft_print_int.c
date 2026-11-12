@@ -78,12 +78,9 @@ int	ft_putnbr_int(t_tab *tab, long int nbr, char mode)
 	return (len);
 }
 
-void	ft_flag_hyphen(t_tab *tab, int d);
-void	ft_flag_nonhyphen(t_tab *tab, int d);
-
 void	ft_print_int(t_tab *tab, int base)
 {
-	int	d;
+	long	d;
 
 	d = (va_arg(tab->args, int));
 	tab->base = base;
