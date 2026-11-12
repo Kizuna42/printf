@@ -92,12 +92,13 @@ re:			fclean all
 bonus:		re
 
 TEST_BIN	= test_printf
+TEST_SRC	= $(wildcard tests/*.c)
 
 test:		$(NAME)
-			@$(CC) $(CFLAGS) tests/test_printf.c $(NAME) -o $(TEST_BIN)
+			@$(CC) $(CFLAGS) $(TEST_SRC) $(NAME) -o $(TEST_BIN)
 			@./$(TEST_BIN)
 
 norm:
-			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
+			@norminette $(SRC) $(INCLUDE) $(LIBFT) tests | grep -v Norme -B1 || true
 
 .PHONY:		all clean fclean re bonus norm test
